@@ -1,4 +1,4 @@
-/*import 'package:http/http.dart'; 
+import 'package:http/http.dart'; 
 
 Future<void> fetchChatGptResponse() async {
   var url = Uri.parse('https://api.openai.com/v1/chat/completions');
@@ -15,4 +15,4 @@ Future<void> fetchChatGptResponse() async {
     'max_tokens': 100,
   });
 
-  print(response.body);*/
+  print(response.body);
