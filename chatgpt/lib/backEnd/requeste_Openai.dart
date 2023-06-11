@@ -1,4 +1,4 @@
-import 'package:http/http.dart'; 
+import 'package:http/http.dart' as http; 
 
 Future<void> fetchChatGptResponse() async {
   var url = Uri.parse('https://api.openai.com/v1/chat/completions');
