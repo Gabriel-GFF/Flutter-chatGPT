@@ -12,7 +12,9 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("oi"),
+          centerTitle: true,
+          title: const Text("Chat GPT Android"),
+          
           titleTextStyle: const TextStyle(fontSize: 32),
         ),
         body: const Center(
