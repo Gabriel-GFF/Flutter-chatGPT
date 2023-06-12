@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http; 
 
 Future<void> fetchChatGptResponse() async {
-  var url = Uri.parse('https://api.openai.com/v1/chat/completions');
+  var url = Uri.parse('https://api.openai.com/v1/cha}t/completions');
   var headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer YOUR_API_KEY',
@@ -16,3 +16,4 @@ Future<void> fetchChatGptResponse() async {
   });
 
   print(response.body);
+}
