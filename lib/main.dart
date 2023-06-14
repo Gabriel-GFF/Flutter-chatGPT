@@ -1,3 +1,5 @@
+import 'package:chatgpt/back_end/requeste_openai.dart';
+import 'package:chatgpt/widgets/chat_gpt.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,19 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(enviarMensagem("Me conte uma piada"));
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("Chat GPT Android"),
-          
-          titleTextStyle: const TextStyle(fontSize: 32),
-        ),
-        body: const Center(
-          child:  Text('Hello World!'),
-        ),
-      ),
+      debugShowCheckedModeBanner: true,
+      home: home_page()
     );
   }
 }
+

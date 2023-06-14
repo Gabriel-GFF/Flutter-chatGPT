@@ -1,19 +1,37 @@
+import 'dart:convert';
 import 'package:http/http.dart' as http; 
 
-Future<void> fetchChatGptResponse() async {
-  var url = Uri.parse('https://api.openai.com/v1/cha}t/completions');
+const request = 'https://api.openai.com/v1/chat/completions';
+const host = "api.openai.com";
+const path = "/v1/chat/completions";
+const fragment = {"key": " "};//Não tem, e é um parametro nomeado opcional
+
+
+String apiKey = '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'; // Substitua pela sua chave da API do ChatGPT
+
+Future<String> enviarMensagem(String mensagem) async {
+  var url = Uri.https(host,path);
+
   var headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_API_KEY',
+    'Authorization': 'Bearer $apiKey',
   };
 
-  var response = await http.post(url, headers: headers, body: {
+  var body = {
+    'model': 'gpt-3.5-turbo',
     'messages': [
-      {'role': 'system', 'content': 'You are a helpful assistant.'},
-      {'role': 'user', 'content': 'Who won the world series in 2020?'}
+      {'role': 'system', 'content': 'Você é um bot'},
+      {'role': 'user', 'content': mensagem},
     ],
-    'max_tokens': 100,
-  });
+  };
 
-  print(response.body);
+  var response = await http.post(url, headers: headers, body: jsonEncode(body));
+
+  if (response.statusCode == 200) {
+    var data = jsonDecode(response.body);
+    var resposta = data['choices'][0]['message']['content'];
+    return resposta;
+  } else {
+    throw Exception('Erro ao fazer a requisição à API');
+  }
 }
