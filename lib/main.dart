@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(enviarMensagem("Me conte uma piada"));
+   // print(enviarMensagem("Me conte uma piada"));
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       home: home_page()

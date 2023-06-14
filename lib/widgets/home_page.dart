@@ -33,7 +33,7 @@ class _home_pageState extends State<home_page> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-    minimum: const EdgeInsets.all(8),
+    minimum: const EdgeInsets.all(1),
     child: Scaffold(
           appBar: AppBar(
             leading:const Icon(Icons.menu_open_outlined),
@@ -42,30 +42,34 @@ class _home_pageState extends State<home_page> {
             titleTextStyle: const TextStyle(fontSize: 32),
           ),
           body: Center(
-            child: Column(
-            children: [/*ListView.builder(
-              itemCount: 1,
-              itemBuilder: (BuildContext context, int index) {
-                return Text("datasss");
-              },),*/
-              Row(
-                children: [IconButton(onPressed: _deleteAllHist, icon: const Icon(Icons.delete_forever_outlined)),
-                IconButton(onPressed: _editUltimo, icon: const Icon(Icons.edit)),
-                IconButton(onPressed: _saveStorege, icon: const Icon(Icons.save_outlined)),
-                Text("$qtdQuestions Pergunta(s)")],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: pergunta ,
-
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+              children: [/*ListView.builder(
+                itemCount: 1,
+                itemBuilder: (BuildContext context, int index) {
+                  return Text("datasss");
+                },),*/
+                Row(
+                  children: [IconButton(onPressed: _deleteAllHist, icon: const Icon(Icons.delete_forever_outlined)),
+                  IconButton(onPressed: _editUltimo, icon: const Icon(Icons.edit)),
+                  IconButton(onPressed: _saveStorege, icon: const Icon(Icons.save_outlined)),
+                  Text("$qtdQuestions Pergunta(s)")],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: pergunta ,
+                          
+                      ),
                     ),
-                  ),
-                  Icon(Icons.add_circle_outline)
-                ],
-              )
-            ],  
+                    const Icon(Icons.add_circle_outline,size: 32,)
+                  ],
+                )
+              ],  
+              ),
             ),
           )
           ),
