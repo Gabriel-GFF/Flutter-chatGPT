@@ -1,5 +1,5 @@
 import 'package:chatgpt/back_end/requeste_openai.dart';
-import 'package:chatgpt/widgets/chat_gpt.dart';
+import 'package:chatgpt/widgets/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
